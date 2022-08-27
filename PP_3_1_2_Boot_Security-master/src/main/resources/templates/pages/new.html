@@ -2,15 +2,18 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <title>Create</title>
 </head>
 <body>
-<form th:method="POST" th:action="@{/users}" th:object="${user}">
-    <label for="name">Name</label>
-    <input type="text" th:field="*{name}" id="name">
+<div th:replace="~{pages/common :: header}"></div>
+<form th:method="POST" th:action="@{/admin}" th:object="${user}">
+    <label for="name">Firstname</label>
+    <input type="text" th:field="*{username}" id="name">
     <br>
-    <label for="sex">Sex</label>
-    <input type="text" th:field="*{sex}" id="sex">
+    <label for="sex">Lastname</label>
+    <input type="text" th:field="*{lastname}" id="sex">
     <br>
     <input type="submit" value="Create">
 </form>

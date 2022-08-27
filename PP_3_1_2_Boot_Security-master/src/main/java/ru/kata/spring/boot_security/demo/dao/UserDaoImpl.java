@@ -6,8 +6,10 @@ import ru.kata.spring.boot_security.demo.models.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @Transactional
@@ -37,4 +39,11 @@ public class UserDaoImpl implements UserDao{
         entityManager.remove(getUser(id));
         entityManager.flush();
     }
+
+    @Override
+    public User findByUsername(String username) {
+        return (User)entityManager.createQuery("from User u where u.firstname = :name")
+                .setParameter("name", username).getResultList().get(0);
+    }
+
 }
