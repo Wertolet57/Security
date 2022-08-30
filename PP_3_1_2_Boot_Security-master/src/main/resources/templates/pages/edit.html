@@ -8,14 +8,29 @@
 </head>
 <body>
 <div th:replace="~{pages/common :: header}"></div>
+
 <form th:method="PATCH" th:action="@{/admin/{id}(id=${user.getId()})}" th:object="${user}">
-  <label for="name">Name</label>
-  <input type="text" th:field="*{name}" id="name">
-  <br>
-  <label for="sex">Sex</label>
-  <input type="text" th:field="*{sex}" id="sex">
-  <br>
-  <input type="submit" value="Update">
+
+    <label for="firstname">FirstName</label>
+    <input type="text" th:field="*{firstname}" id="firstname">
+    <br>
+    <label for="lastname">LastName</label>
+    <input type="text" th:field="*{lastname}" id="lastname">
+    <br>
+    <label for="age">Aeg</label>
+    <input type="text" th:field="*{age}" id="age">
+    <br>
+    <label for="email">Email</label>
+    <input type="text" th:field="*{email}" id="email">
+    <br>
+    <label for="role">Role</label>
+    <input type="text" th:field="*{role}" id="role">
+    <br>
+    <label for="password">Password</label>
+    <input type="password" th:field="*{password}" id="password">
+    <br>
+
+    <input type="submit" value="Update">
 </form>
 </body>
 </html>

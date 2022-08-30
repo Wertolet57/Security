@@ -11,10 +11,8 @@ import ru.kata.spring.boot_security.demo.dao.UserDao;
 import ru.kata.spring.boot_security.demo.models.User;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
-@ComponentScan("ru.kata.spring.boot_security.demo.dao")
 public class UserServiceImpl implements UserService, UserDetailsService {
     UserDao userDao;
     @Autowired
@@ -30,16 +28,16 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return userDao.getUser(id);
     }
     @Override
-    public void save(User user) {
-        userDao.save(user);
+    public void saveUser(User user) {
+        userDao.saveUser(user);
     }
     @Override
-    public void update(User user) {
-        userDao.update(user);
+    public void updateUser(User user) {
+        userDao.updateUser(user);
     }
     @Override
-    public void delete(Long id) {
-        userDao.delete(id);
+    public void deleteUser(Long id) {
+        userDao.deleteUser(id);
     }
 
     @Override
