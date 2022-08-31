@@ -11,24 +11,7 @@
 
 <form th:method="PATCH" th:action="@{/admin/{id}(id=${user.getId()})}" th:object="${user}">
 
-    <label for="firstname">FirstName</label>
-    <input type="text" th:field="*{firstname}" id="firstname">
-    <br>
-    <label for="lastname">LastName</label>
-    <input type="text" th:field="*{lastname}" id="lastname">
-    <br>
-    <label for="age">Aeg</label>
-    <input type="text" th:field="*{age}" id="age">
-    <br>
-    <label for="email">Email</label>
-    <input type="text" th:field="*{email}" id="email">
-    <br>
-    <label for="role">Role</label>
-    <input type="text" th:field="*{role}" id="role">
-    <br>
-    <label for="password">Password</label>
-    <input type="password" th:field="*{password}" id="password">
-    <br>
+    <div th:include="~{pages/new :: forma}"></div>
 
     <input type="submit" value="Update">
 </form>

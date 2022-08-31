@@ -10,26 +10,28 @@
 <div th:replace="~{pages/common :: header}"></div>
 
 <form th:method="POST" th:action="@{/admin}" th:object="${user}">
-
-    <label for="firstname">FirstName</label>
-    <input type="text" th:field="*{firstname}" id="firstname">
-    <br>
-    <label for="lastname">LastName</label>
-    <input type="text" th:field="*{lastname}" id="lastname">
-    <br>
-    <label for="age">Aeg</label>
-    <input type="text" th:field="*{age}" id="age">
-    <br>
-    <label for="email">Email</label>
-    <input type="text" th:field="*{email}" id="email">
-    <br>
-    <label for="role">Role</label>
-    <input type="text" th:field="*{role}" id="role">
-    <br>
-    <label for="password">Password</label>
-    <input type="password" th:field="*{password}" id="password">
-    <br>
-
+    <div th:fragment="forma">
+        <label for="firstname">FirstName</label>
+        <input type="text" th:field="*{firstname}" id="firstname">
+        <br>
+        <label for="lastname">LastName</label>
+        <input type="text" th:field="*{lastname}" id="lastname">
+        <br>
+        <label for="age">Aeg</label>
+        <input type="text" th:field="*{age}" id="age">
+        <br>
+        <label for="email">Email</label>
+        <input type="text" th:field="*{email}" id="email">
+        <br>
+        <select class="form-select" multiple th:field="*{role}">
+            <option th:value="ROLE_ADMIN" th:text="admin"></option>
+            <option selected th:value="ROLE_USER" th:text="user"></option>
+        </select>
+        <br>
+        <label for="password">Password</label>
+        <input type="password" th:field="*{password}" id="password">
+        <br>
+    </div>
     <input type="submit" value="Create">
 </form>
 </body>
